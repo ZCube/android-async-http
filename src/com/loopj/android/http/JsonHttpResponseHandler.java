@@ -36,7 +36,16 @@ import org.json.JSONTokener;
  * parent class.
  */
 public class JsonHttpResponseHandler extends AsyncHttpResponseHandler {
-    //
+
+    public JsonHttpResponseHandler () {
+        super ();
+    }
+
+    public JsonHttpResponseHandler ( boolean useHandler ) {
+        super ( useHandler );
+    }
+	
+	//
     // Callbacks to be overridden, typically anonymously
     //
 

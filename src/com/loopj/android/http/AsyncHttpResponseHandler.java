@@ -88,7 +88,17 @@ public class AsyncHttpResponseHandler {
         }
     }
 
-
+    public AsyncHttpResponseHandler ( boolean useHandler ) {
+        // Set up a handler to post events back to the correct thread if possible
+        if ( useHandler ) {
+            handler = new Handler() {
+                public void handleMessage ( Message msg ) {
+                    AsyncHttpResponseHandler.this.handleMessage ( msg );
+                }
+            };
+        }
+    }
+    
     //
     // Callbacks to be overridden, typically anonymously
     //

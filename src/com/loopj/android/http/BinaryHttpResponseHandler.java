@@ -70,12 +70,21 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
         super();
     }
 
+    public BinaryHttpResponseHandler(boolean useHandler) {
+        super(useHandler);
+    }
+
     /**
      * Creates a new BinaryHttpResponseHandler, and overrides the default allowed
      * content types with passed String array (hopefully) of content types.
      */
     public BinaryHttpResponseHandler(String[] allowedContentTypes) {
         this();
+        mAllowedContentTypes = allowedContentTypes;
+    }
+
+    public BinaryHttpResponseHandler(String[] allowedContentTypes, boolean useHandler) {
+        this(useHandler);
         mAllowedContentTypes = allowedContentTypes;
     }
 
